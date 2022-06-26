@@ -20,11 +20,11 @@ type Elevator struct {
 	screenDisplay int
 }
 
-func NewElevator(ID int, _status string, _amountOfFloors int, _currentFloor int) *Elevator {
+func NewElevator(ID int, _status string, _amountOfFloors int, _currentFloor int) Elevator {
 	
 	door := Door{ID: ID, status: "closed"}
 
-	elevator := &Elevator{ID: ID, status: "idle", amountOfFloors: _amountOfFloors, currentFloor: _currentFloor, door: door}
+	elevator := Elevator{ID: ID, status: "idle", amountOfFloors: _amountOfFloors, currentFloor: _currentFloor, door: door}
 	
 	return elevator
 }
