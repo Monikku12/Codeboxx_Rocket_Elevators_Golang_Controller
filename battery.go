@@ -8,6 +8,7 @@ type Battery struct {
 	amountOfFloors				int
 	amountOfBasements			int
 	amountOfElevatorPerColumn	int
+	Floor						int
 	status						string
 	elevator					[]Elevator
 	isBasement					bool
@@ -32,16 +33,15 @@ func NewBattery(ID int, _amountOfColumns int, _amountOfFloors int, _amountOfBase
 }
 
 // Creates the column in charge of the basement floors.
-func (b *Battery) createBasementColumn(_amountOfBasements int, _amountOfElevatorPerColumn int) {
-	List<int> servedFloorsList = new List<int>()
-	int floor = -1
-	for (int i = 0; i < _amountOfBasements; i++)
-	{
-		servedFloorsList.Add(floor)
-		floor--
+func (b *Battery) createBasementColumn(_amountOfBasements int, _amountOfElevatorPerColumn int) Battery {
+	servedFloorsList := []NewServedFloorsList
+	b.floor = -1
+	for i := 0; i < _amountOfBasements; i++ {
+		servedFloorsList.append(b.floor, _floor)
+		b.floor--
 	}
-	Column column = new Column(ID, "online", _amountOfBasements, servedFloorsList, _amountOfElevatorPerColumn, true)
-	this.columnsList.Add(column)
+	column := NewColumn(1, "online", _amountOfBasements, servedFloorsList, _amountOfElevatorPerColumn, true)
+	columnsList.append(column)
 }
 
 // // Creates the column in charge of the upper floors.
